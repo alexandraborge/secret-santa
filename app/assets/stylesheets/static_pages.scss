@@ -1,0 +1,59 @@
+// Place all the styles related to the StaticPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$red: #C6502E;
+$green: #218000;
+
+.home-page {
+  font-family: 'Montserrat', sans-serif;
+
+  .main-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 100px;
+
+    div {
+      width: 30%;
+    }
+
+    .about-signup {
+      font-size: 24px;
+      text-align: center;
+      border: 3px solid $red;
+      color: $red;
+      border-radius: 15px;
+      min-height: 220px;
+      padding: 3%;
+      font-weight: bold;
+      padding-top: 6%;
+
+      button {
+        margin-top: 30px;
+        background-color: $green;
+        border-radius: 15px;
+        color: #FFF;
+        font-size: 20px;
+        padding: 10px 20px;
+        border: 2px solid $red;
+      }
+
+      button:hover {
+        background-color: $red;
+        color: white;
+        border-color: $green;
+      }
+    }
+
+    .festive-image {
+      padding-left: 20px;
+      img {
+        width: 60%;
+      }
+    }
+  }
+}
+
+.get-started-page {
+
+}

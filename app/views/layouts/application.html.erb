@@ -6,10 +6,17 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" >
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <div class='navbar'>
+      <div><%= link_to('Home', root_path) %></div>
+      <div><%= link_to('Get Started', get_started_path) %></div>
+      <div class='login'><%= link_to('Login', '#') %></div>
+    </div>
     <%= yield %>
   </body>
 </html>
