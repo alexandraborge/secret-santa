@@ -1,0 +1,24 @@
+$red: #C6502E;
+$green: #218000;
+ 
+.navbar {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  justify-content: flex-end;
+  border: 3px solid $green;
+  border-radius: 15px;
+  background-color: $red;
+
+  div {
+    padding: 10px;
+    font-weight: bold;
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    a:hover {
+      color: $green;
+    }
+  }
+}
