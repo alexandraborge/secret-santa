@@ -32,10 +32,13 @@ $green: #218000;
         margin-top: 30px;
         background-color: $green;
         border-radius: 15px;
-        color: #FFF;
+        color: white;
         font-size: 20px;
         padding: 10px 20px;
         border: 2px solid $red;
+        a {
+          text-decoration: none;
+        }
       }
 
       button:hover {
@@ -56,4 +59,10 @@ $green: #218000;
 
 .get-started-page {
 
+}
+
+.success-message {
+  background-color: #B4D5B5;
+  padding: 20px;
+  margin-top: 10px;
 }
