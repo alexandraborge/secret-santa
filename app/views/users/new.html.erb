@@ -1,2 +1,21 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<div class='signup-page'>
+  <div class='title'>Sign Up</div>
+  <% if flash[:errors].present? %>
+    <ul class='error-messages'>
+      <% flash[:errors].each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <%= form_with(model: @user, url: signup_path) do |f| %>
+    <%= f.label(:name) %><br>
+    <%= f.text_field(:name) %><br>
+    <%= f.label(:email) %><br>
+    <%= f.email_field(:email) %><br>
+    <%= f.label(:password) %><br>
+    <%= f.password_field(:password) %><br>
+    <%= f.label(:password_confirmation, 'Password Confirmation') %><br>
+    <%= f.password_field(:password_confirmation) %><br><br>
+    <%= f.submit('Create Account', class: 'submit-button') %>
+  <% end %>
+</div>

@@ -1,8 +1,11 @@
 <div class='home-page'>
+  <% if flash[:success].present? %>
+    <div class='success-message'><%= flash[:success] %></div>
+  <% end %>
   <div class='main-container'>
     <div class='about-signup'>
       Get together with friends and family for a fun holiday game of Secret Santa and more!<br>
-      <button>Sign Up Now</button>
+      <button><%= link_to('Sign Up Now', signup_path) %></button>
     </div>
     <div class='festive-image'>{{image will go here}}</div>
   </div>
