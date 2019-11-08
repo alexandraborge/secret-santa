@@ -1,0 +1,18 @@
+<% if flash[:success].present? %>
+  <div class='success-message'><%= flash[:success] %></div>
+<% end %>
+
+<div class='profile-page'>
+  <div class='left'>
+    <div class='name'><%= @user.name %>  <%= link_to("<i class='fas fa-user-edit'></i>".html_safe, edit_user_path) %></div>
+    <div class='avatar'><%= image_tag(url_for(@user.display_image)) if @user.avatar.present? %></div>
+    <% if @user.summary.present? %>
+      <div class='summary-label'>Summary</div>
+      <div><%= @user.summary %></div>
+    <% end %>
+  </div>
+  <div class='right'>
+    <%= link_to("<i class='fas fa-plus'></i> Create New Game".html_safe, '#') %>
+    <div>{{ My Games }}</div>
+  </div>
+</div>

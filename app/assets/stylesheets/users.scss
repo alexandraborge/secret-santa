@@ -4,14 +4,20 @@
 $red: #C6502E;
 $green: #218000;
 
+%page-title {
+  margin: 20px 0;
+  font-weight: bold;
+  font-size: 32px;
+  text-align: center;
+}
+
+
 .signup-page {
   font-family: 'Montserrat', sans-serif;
 
   .title {
-    margin: 20px 0;
-    font-weight: bold;
-    font-size: 32px;
     text-align: center;
+    @extend %page-title;
   }
 
   .error-messages {
@@ -73,4 +79,27 @@ $green: #218000;
 
 .profile-page {
   font-family: 'Montserrat', sans-serif;
+  display: flex;
+  justify-content: space-between;
+
+  .left {
+    padding-left: 2%;
+    .name {
+      @extend %page-title;
+    }
+
+    .avatar {
+      img {
+        border: 5px solid $green;
+        border-radius: 10px;
+      }
+    }
+  
+    .summary-label {
+      margin-top: 10px;
+      margin-bottom: 5px;
+      font-weight: bold;
+      font-size: 22px;
+    }
+  }
 }
