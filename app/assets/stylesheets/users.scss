@@ -4,62 +4,164 @@
 $red: #C6502E;
 $green: #218000;
 
+%page-title {
+  margin: 20px 0;
+  font-weight: bold;
+  font-size: 32px;
+  text-align: center;
+}
+
+%submit-button {
+  margin-top: 20px;
+  margin-left: 10px;
+  background-color: $green;
+  border-radius: 15px;
+  color: white;
+  font-size: 20px;
+  padding: 10px 20px;
+  border: 2px solid $red;
+  a {
+    text-decoration: none;
+  }
+
+  &:hover {
+    background-color: $red;
+    color: white;
+    border-color: $green;
+  }
+}
+
+%form {
+  width: 50%;
+
+  label {
+    font-weight: bold;
+  }
+  
+  input, textarea {
+    margin-bottom: 10px;
+    margin-top: 2px;
+    width: 50%;
+    padding: 3px 10px;
+    font-size: 14px;
+    border: 1px solid $green;
+    border-radius: 10px;
+  }
+}
+
+
 .signup-page {
   font-family: 'Montserrat', sans-serif;
 
   .title {
-    margin: 20px 0;
-    font-weight: bold;
-    font-size: 32px;
     text-align: center;
-  }
-
-  .error-messages {
-    background-color: #E8BDB3;
-    padding: 10px;
-    padding-left: 30px;
-    width: 50%;
-    border: 1px solid #E8BDB3;
-    border-radius: 10px;
-    margin-left: 23%;
+    @extend %page-title;
   }
 
   form {
-    width: 50%;
+    @extend %form;
     margin: 10px 0 10px 32%;
 
-    label {
-      font-weight: bold;
-    }
 
     input {
-      margin-bottom: 10px;
-      margin-top: 2px;
       width: 70%;
-      padding: 3px 10px;
-      font-size: 14px;
-      border: 1px solid $green;
-      border-radius: 10px;
     }
 
     .submit-button {
-      margin-top: 20px;
-      margin-left: 10px;
-      background-color: $green;
-      border-radius: 15px;
-      color: white;
-      font-size: 20px;
-      padding: 10px 20px;
-      border: 2px solid $red;
-      a {
-        text-decoration: none;
-      }
+      @extend %submit-button;
+    }
+  }
+}
+
+.success-message {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #B4D5B5;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.error-messages {
+  background-color: #E8BDB3;
+  padding: 10px;
+  padding-left: 30px;
+  width: 50%;
+  border: 1px solid #E8BDB3;
+  border-radius: 10px;
+  margin-left: 23%;
+}
+
+.profile-page {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  justify-content: space-between;
+
+  .left {
+    padding-left: 2%;
+    width: 40%;
+    .name {
+      @extend %page-title;
+      text-align: left;
     }
 
-    .submit-button:hover {
-      background-color: $red;
-      color: white;
-      border-color: $green;
+    .avatar {
+      img {
+        border: 5px solid $green;
+        border-radius: 10px;
+      }
+    }
+  
+    .summary-label {
+      margin-top: 10px;
+      margin-bottom: 5px;
+      font-weight: bold;
+      font-size: 22px;
+    }
+
+    .summary {
+      border-top: 2px solid $red;
+      padding: 5px 2px;
+      width: 80%;
+    }
+  }
+}
+
+.edit-page {
+  font-family: 'Montserrat', sans-serif;
+  padding-left: 10px;
+
+  .title {
+    @extend %page-title;
+    text-align: left;
+  }
+
+  .error-messages {
+    margin-left: 0;
+  }
+
+  form {
+    @extend %form;
+
+    input, textarea {
+      width: 50%;
+    }
+
+    #user_avatar {
+      border: 0;
+      padding: 3px 0;
+      color: $green;
+    }
+
+    textarea {
+      min-height: 70px;
+    }
+
+    .submit-button {
+      @extend %submit-button;
+    }
+
+    img {
+      border: 5px solid $green;
+      border-radius: 10px;
     }
   }
 }
