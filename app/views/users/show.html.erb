@@ -8,7 +8,7 @@
     <div class='avatar'><%= image_tag(url_for(@user.display_image)) if @user.avatar.present? %></div>
     <% if @user.summary.present? %>
       <div class='summary-label'>Summary</div>
-      <div><%= @user.summary %></div>
+      <div class='summary'><%= @user.summary %></div>
     <% end %>
   </div>
   <div class='right'>

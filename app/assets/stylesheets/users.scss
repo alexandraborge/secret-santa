@@ -11,6 +11,44 @@ $green: #218000;
   text-align: center;
 }
 
+%submit-button {
+  margin-top: 20px;
+  margin-left: 10px;
+  background-color: $green;
+  border-radius: 15px;
+  color: white;
+  font-size: 20px;
+  padding: 10px 20px;
+  border: 2px solid $red;
+  a {
+    text-decoration: none;
+  }
+
+  &:hover {
+    background-color: $red;
+    color: white;
+    border-color: $green;
+  }
+}
+
+%form {
+  width: 50%;
+
+  label {
+    font-weight: bold;
+  }
+  
+  input, textarea {
+    margin-bottom: 10px;
+    margin-top: 2px;
+    width: 50%;
+    padding: 3px 10px;
+    font-size: 14px;
+    border: 1px solid $green;
+    border-radius: 10px;
+  }
+}
+
 
 .signup-page {
   font-family: 'Montserrat', sans-serif;
@@ -31,41 +69,16 @@ $green: #218000;
   }
 
   form {
-    width: 50%;
+    @extend %form;
     margin: 10px 0 10px 32%;
 
-    label {
-      font-weight: bold;
-    }
 
     input {
-      margin-bottom: 10px;
-      margin-top: 2px;
       width: 70%;
-      padding: 3px 10px;
-      font-size: 14px;
-      border: 1px solid $green;
-      border-radius: 10px;
     }
 
     .submit-button {
-      margin-top: 20px;
-      margin-left: 10px;
-      background-color: $green;
-      border-radius: 15px;
-      color: white;
-      font-size: 20px;
-      padding: 10px 20px;
-      border: 2px solid $red;
-      a {
-        text-decoration: none;
-      }
-    }
-
-    .submit-button:hover {
-      background-color: $red;
-      color: white;
-      border-color: $green;
+      @extend %submit-button;
     }
   }
 }
@@ -86,6 +99,7 @@ $green: #218000;
     padding-left: 2%;
     .name {
       @extend %page-title;
+      text-align: left;
     }
 
     .avatar {
@@ -100,6 +114,49 @@ $green: #218000;
       margin-bottom: 5px;
       font-weight: bold;
       font-size: 22px;
+    }
+
+    .summary {
+      border-top: 2px solid $red;
+      padding: 5px 2px;
+      width: 50%;
+    }
+  }
+}
+
+.edit-page {
+  font-family: 'Montserrat', sans-serif;
+  padding-left: 10px;
+
+  .title {
+    @extend %page-title;
+    text-align: left;
+  }
+
+  form {
+    @extend %form;
+
+    input, textarea {
+      width: 50%;
+    }
+
+    #user_avatar {
+      border: 0;
+      padding: 3px 0;
+      color: $green;
+    }
+
+    textarea {
+      min-height: 70px;
+    }
+
+    .submit-button {
+      @extend %submit-button;
+    }
+
+    img {
+      border: 5px solid $green;
+      border-radius: 10px;
     }
   }
 }
