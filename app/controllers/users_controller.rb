@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create(create_user_params)
     if @user.valid?
+      login(@user)
       flash[:success] = "Welcome #{@user.name}! Start by customizing your profile!"
       redirect_to @user
     else
