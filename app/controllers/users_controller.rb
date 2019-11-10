@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(user_params)
+    @user = User.create(create_user_params)
     @user.avatar.attach(params[:avatar])
     if @user.valid?
       flash[:success] = "Welcome #{@user.name}! Start by customizing your profile!"
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update(user_params)
+    if @user.update(create_user_params)
       flash[:success] = "Profile Updated!"
       redirect_to @user
     else
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
 
   private
 
-  def user_params
+  def create_user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar, :summary)
   end
 end

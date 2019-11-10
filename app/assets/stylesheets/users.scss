@@ -58,16 +58,6 @@ $green: #218000;
     @extend %page-title;
   }
 
-  .error-messages {
-    background-color: #E8BDB3;
-    padding: 10px;
-    padding-left: 30px;
-    width: 50%;
-    border: 1px solid #E8BDB3;
-    border-radius: 10px;
-    margin-left: 23%;
-  }
-
   form {
     @extend %form;
     margin: 10px 0 10px 32%;
@@ -88,6 +78,16 @@ $green: #218000;
   background-color: #B4D5B5;
   padding: 20px;
   margin-top: 10px;
+}
+
+.error-messages {
+  background-color: #E8BDB3;
+  padding: 10px;
+  padding-left: 30px;
+  width: 50%;
+  border: 1px solid #E8BDB3;
+  border-radius: 10px;
+  margin-left: 23%;
 }
 
 .profile-page {
@@ -131,6 +131,10 @@ $green: #218000;
   .title {
     @extend %page-title;
     text-align: left;
+  }
+
+  .error-messages {
+    margin-left: 0;
   }
 
   form {
