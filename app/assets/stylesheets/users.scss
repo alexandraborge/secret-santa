@@ -97,6 +97,7 @@ $green: #218000;
 
   .left {
     padding-left: 2%;
+    width: 40%;
     .name {
       @extend %page-title;
       text-align: left;
@@ -119,7 +120,7 @@ $green: #218000;
     .summary {
       border-top: 2px solid $red;
       padding: 5px 2px;
-      width: 50%;
+      width: 80%;
     }
   }
 }

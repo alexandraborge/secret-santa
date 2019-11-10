@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  before_create(:default_values)
   has_one_attached(:avatar)
   has_secure_password
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -9,5 +10,10 @@ class User < ApplicationRecord
 
   def display_image
     avatar.variant(resize_to_limit: [200, 250])
+  end
+
+  def default_values
+    self.summary ||= 'I love holiday games! (Use this area to tell us about yourself and your top gift preferences. Be Specific!)'
+    self.avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default-avatar.jpg')), filename: 'default-avatar.jpg', content_type: 'image/jpg')
   end
 end
