@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method(:logged_in?, :current_user, :logout, :login, :settings_path)
+  helper_method(:logged_in?, :current_user, :logout, :login, :settings_path, :current_user?)
 
   private
 
@@ -23,6 +23,11 @@ class ApplicationController < ActionController::Base
   end
 
   def settings_path
+    return if @user.blank?
     "/users/#{@user.id}/settings"
+  end
+
+  def current_user?(user)
+    user && user == current_user
   end
 end

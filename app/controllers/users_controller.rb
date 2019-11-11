@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  # For now only allow the logged in current user to view, update, delete their profile
+  # Later, anyone in a game with the person will be able to view their profile
+  before_action(:correct_user, only: [:show, :edit, :update, :delete])
+
   def new
     @user = User.new
   end
@@ -49,5 +53,10 @@ class UsersController < ApplicationController
 
   def create_user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar, :summary)
+  end
+
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to root_url unless current_user?(@user)
   end
 end
