@@ -165,3 +165,30 @@ $green: #218000;
     }
   }
 }
+
+.settings-page {
+  font-family: 'Montserrat', sans-serif;
+  .title {
+    @extend %page-title;
+  }
+
+  .delete-button {
+    text-align: center;
+    background-color: $red;
+    font-size: 18px;
+    padding: 5px;
+    color: white;
+    border-radius: 10px;
+
+    width: 15%;
+    margin: 0 auto;
+    a {
+      text-decoration: none;
+      color: white;
+
+      &:hover {
+        color: $green;
+      }
+    }
+  }
+}

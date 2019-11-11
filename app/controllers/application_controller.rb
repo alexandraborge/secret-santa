@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method(:logged_in?, :current_user, :logout, :login)
+  helper_method(:logged_in?, :current_user, :logout, :login, :settings_path, :current_user?)
 
   private
 
@@ -20,5 +20,14 @@ class ApplicationController < ActionController::Base
   def logout
     session.delete(:user_id)
     @current_user = nil
+  end
+
+  def settings_path
+    return if @user.blank?
+    "/users/#{@user.id}/settings"
+  end
+
+  def current_user?(user)
+    user && user == current_user
   end
 end
