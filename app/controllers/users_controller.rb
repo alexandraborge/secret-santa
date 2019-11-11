@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   # For now only allow the logged in current user to view, update, delete their profile
   # Later, anyone in a game with the person will be able to view their profile
-  before_action(:correct_user, only: [:show, :edit, :update, :delete])
+  before_action(:authorized_user, only: [:show, :edit, :update, :delete])
 
   def new
     @user = User.new
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = 'User Deleted'
+    flash[:success] = 'Your account has been deleted'
     redirect_to root_url
   end
 
@@ -55,8 +55,8 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar, :summary)
   end
 
-  def correct_user
+  def authorized_user
     @user = User.find(params[:id])
-    redirect_to root_url unless current_user?(@user)
+    redirect_to root_path unless current_user?(@user)
   end
 end
