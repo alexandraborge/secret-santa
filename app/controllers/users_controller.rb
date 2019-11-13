@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.avatar.attach(params[:avatar])
+    @user.avatar.attach(params[:avatar]) if @user.avatar.blank?
     if @user.update(create_user_params)
       flash[:success] = "Profile Updated!"
       redirect_to @user

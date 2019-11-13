@@ -12,8 +12,8 @@ $green: #218000;
   }
 
   form {
-    width: 50%;
-    margin: 10px 0 10px 32%;
+    width: 35%;
+    margin: 10px auto;
 
     label {
       font-weight: bold;
@@ -22,7 +22,7 @@ $green: #218000;
     input {
       margin-bottom: 10px;
       margin-top: 2px;
-      width: 70%;
+      width: 93%;
       padding: 3px 10px;
       font-size: 14px;
       border: 1px solid $green;
@@ -31,7 +31,7 @@ $green: #218000;
 
     .submit-button {
       margin-top: 10px;
-      margin-left: 20%;
+      margin: 10px auto;
       background-color: $green;
       border-radius: 15px;
       color: white;
@@ -39,7 +39,8 @@ $green: #218000;
       padding: 5px 20px;
       border: 2px solid $red;
       text-align: center;
-      width: 150px;
+      width: 40%;
+      margin-left: 30%;
       a {
         text-decoration: none;
       }
