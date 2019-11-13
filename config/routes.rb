@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'games/new'
   get 'sessions/new'
   root 'static_pages#home'
   get '/get_started', to: 'static_pages#get_started'
