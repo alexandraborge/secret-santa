@@ -1,0 +1,19 @@
+<div class='title'>Welcome! Get ready for a fun game of <%= @game.game_title %></div>
+<div class='instructions'>
+  <div>How to play:</div>
+  <%= instructions %>
+</div>
+<div class='game-info'>
+  <div class='stats'>
+    Group: <%= @game.name %><br>
+    Creator: God{{name of admin_user}}<br>
+    Budget: $<%= @game.budget.to_i %>
+  </div>
+  <div class='countdown'>
+    <div class='days'><%= countdown_to_draw %></div>
+    <div>Days Until the Drawing!</div>
+    <div>Drawing on <%= drawing_date.strftime('%B %d, %Y') %></div>
+  </div>
+</div>
+
+<div clas='players'></div>

@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   resources :users
   get '/users/:id/settings', to: 'users#settings'
+  resources :games
 end
