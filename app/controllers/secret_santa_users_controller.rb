@@ -1,0 +1,2 @@
+class SecretSantaUsersController < ApplicationController
+end

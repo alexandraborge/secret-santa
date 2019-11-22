@@ -1,0 +1,2 @@
+class SecretSantaUser < ApplicationRecord
+end
