@@ -1,0 +1,15 @@
+<div class='title'>Create New Secret Santa Game</div>
+
+<%= form_with(model: @secret_santa, url: create_secret_santa_game_path) do |f| %>
+  <%= f.label(:group_name, 'Group Name') %><br>
+  <%= f.text_field(:group_name) %><br>
+  <%= f.label(:date_of_draw, 'What is the date of the draw?') %><br>
+  <%= f.date_field(:date_of_draw) %><br>
+  <%= f.label(:budget, 'What is the budget for this game?') %><br>
+  <%= f.number_field(:budget) %><br>
+  <%= f.label(:date_of_game, 'What date is the game taking place?') %><br>
+  <%= f.date_field(:date_of_game) %><br>
+  <%= f.hidden_field(:creator, value: current_user[:id]) %>
+  <%= f.hidden_field(:game_title, value: 'Secret Santa') %>
+  <%= f.submit('Create Game', class: 'submit-button') %>
+<% end %>

@@ -1,0 +1,2 @@
+class SecretSantaGame < ApplicationRecord
+end

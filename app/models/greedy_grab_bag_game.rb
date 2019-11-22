@@ -1,0 +1,2 @@
+class GreedyGrabBagGame < ApplicationRecord
+end

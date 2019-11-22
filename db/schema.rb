@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_14_001233) do
+ActiveRecord::Schema.define(version: 2019_11_16_224252) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -43,14 +43,25 @@ ActiveRecord::Schema.define(version: 2019_11_14_001233) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "games", force: :cascade do |t|
-    t.string "name"
-    t.integer "admin_user"
+  create_table "greedy_grab_bag_games", force: :cascade do |t|
+    t.integer "creator"
+    t.string "group_name"
+    t.string "game_title"
+    t.datetime "date_of_game"
+    t.integer "budget"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "secret_santa_games", force: :cascade do |t|
+    t.integer "creator"
+    t.string "group_name"
     t.string "game_title"
     t.datetime "date_of_draw"
-    t.float "budget"
+    t.datetime "date_of_game"
+    t.integer "budget"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|

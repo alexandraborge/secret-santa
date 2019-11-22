@@ -1,13 +1,17 @@
-<div class='title'>Welcome! Get ready for a fun game of <%= @game.game_title %></div>
+<% if flash[:success].present? %>
+  <div class='success-message'><%= flash[:success] %></div>
+<% end %>
+
+<div class='title'>Welcome! Get ready for a fun game of <%= @secret_santa.game_title %></div>
 <div class='instructions'>
   <div>How to play:</div>
   <%= instructions %>
 </div>
 <div class='game-info'>
   <div class='stats'>
-    Group: <%= @game.name %><br>
+    Group: <%= @secret_santa.group_name %><br>
     Creator: God{{name of admin_user}}<br>
-    Budget: $<%= @game.budget.to_i %>
+    Budget: $<%= @secret_santa.budget.to_i %>
   </div>
   <div class='countdown'>
     <div class='days'><%= countdown_to_draw %></div>

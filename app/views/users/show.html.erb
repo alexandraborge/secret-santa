@@ -12,7 +12,8 @@
     <% end %>
   </div>
   <div class='right'>
-    <%= link_to("<i class='fas fa-plus'></i> Create New Game".html_safe, new_game_path) %>
+    <%= link_to("<i class='fas fa-plus'></i> Create a New Secret Santa Game".html_safe, create_secret_santa_game_path) %><br>
+    <%= link_to("<i class='fas fa-plus'></i> Create a New Greedy Grab Bag Game".html_safe, create_greedy_grab_bag_game_path) %>
     <div>{{ My Games }}</div>
   </div>
 </div>

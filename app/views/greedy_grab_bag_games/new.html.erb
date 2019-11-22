@@ -1,0 +1,13 @@
+<div class='title'>Create New Greedy Grab Bag Game</div>
+
+<%= form_with(model: @greedy_grab_bag, url: create_greedy_grab_bag_game_path) do |f| %>
+  <%= f.label(:group_name, 'Group Name') %><br>
+  <%= f.text_field(:group_name) %><br>
+  <%= f.label(:budget, 'What is the budget for this game?') %><br>
+  <%= f.number_field(:budget) %><br>
+  <%= f.label(:date_of_game, 'When will the game take place?') %><br>
+  <%= f.date_field(:date_of_game) %><br>
+  <%= f.hidden_field(:creator, value: current_user[:id]) %>
+  <%= f.hidden_field(:game_title, value: 'Greedy Grab Bag') %>
+  <%= f.submit('Create Game', class: 'submit-button') %>
+<% end %>

@@ -1,0 +1,18 @@
+<% if flash[:success].present? %>
+  <div class='success-message'><%= flash[:success] %></div>
+<% end %>
+
+<div class='title'>Welcome! Get ready for a fun game of <%= @greedy_grab_bag.game_title %></div>
+<div class='instructions'>
+  <div>How to play:</div>
+  <%= instructions %>
+</div>
+<div class='game-info'>
+  <div class='stats'>
+    Group: <%= @greedy_grab_bag.group_name %><br>
+    Creator: God{{name of admin_user}}<br>
+    Budget: $<%= @greedy_grab_bag.budget.to_i %>
+  </div>
+</div>
+
+<div clas='players'></div>
