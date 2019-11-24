@@ -16,6 +16,7 @@ class SecretSantaGamesController < ApplicationController
 
   def show
     @secret_santa = SecretSantaGame.find(params[:id])
+    @secret_santa_user = SecretSantaUser.new
   end
 
   private
