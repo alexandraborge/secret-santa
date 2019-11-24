@@ -148,14 +148,26 @@ a, a:visited {
 
     .my-games {
       padding: 3px 10px;
+
+      .my-game:hover {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+      }
+
       .my-game {
-        margin: 8px 0;
+        margin-bottom: 20px;
         padding: 10px;
         background-color: #E8B9AD;
-        border: 2px solid $red;
+        box-shadow: -10px 25px 50px rgba(0, 0, 0, 0.3);
         border-radius: 7px;
         display: flex;
         justify-content: space-between;
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-property: transform;
+        transition-property: transform;
 
         .left {
           width: 80%;

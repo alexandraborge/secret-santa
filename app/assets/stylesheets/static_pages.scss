@@ -37,8 +37,9 @@ $green: #218000;
         font-size: 20px;
         padding: 10px 20px;
         border: 2px solid $red;
-        a {
+        a, a:visited {
           text-decoration: none;
+          color: white;
         }
       }
 
