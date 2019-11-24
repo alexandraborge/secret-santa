@@ -20,18 +20,12 @@
   </div>
 </div>
 
-<% if flash[:errors].present? %>
-    <ul class='error-messages'>
-      <% flash[:errors].each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
+<% unless current_user_is_player? %>
+  <%= form_with(model: @secret_santa_user, url: new_member_path) do |f| %>
+    <%= f.hidden_field(:secret_santa_game_id, value: @secret_santa.id) %>
+    <%= f.hidden_field(:user_id, value: current_user[:id]) %>
+    <%= f.submit('Join Game') %>
   <% end %>
-
-<%= form_with(model: @secret_santa_user, url: new_member_path) do |f| %>
-  <%= f.hidden_field(:secret_santa_game_id, value: @secret_santa.id) %>
-  <%= f.hidden_field(:user_id, value: current_user[:id]) %>
-  <%= f.submit('Join Game') %>
 <% end %>
 
 <div clas='players'>

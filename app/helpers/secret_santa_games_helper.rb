@@ -18,4 +18,8 @@ module SecretSantaGamesHelper
     a gift for you can check out their profile to see their wish list! You may buy a gift for this person within the budget set.
     On game day all players will take turns giving their gifts to eachother."
   end
+
+  def current_user_is_player?
+    SecretSantaUser.find(current_user[:id]).present?
+  end
 end

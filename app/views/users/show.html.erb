@@ -12,8 +12,33 @@
     <% end %>
   </div>
   <div class='right'>
-    <%= link_to("<i class='fas fa-plus'></i> Create a New Secret Santa Game".html_safe, create_secret_santa_game_path) %><br>
-    <%= link_to("<i class='fas fa-plus'></i> Create a New Greedy Grab Bag Game".html_safe, create_greedy_grab_bag_game_path) %>
-    <div>{{ My Games }}</div>
+    <div class='create-buttons'>
+      <div class='create-button'><%= link_to("<i class='fas fa-plus'></i> Create a New<br> Secret Santa Game".html_safe, create_secret_santa_game_path) %></div>
+      <div class='create-button'><%= link_to("<i class='fas fa-plus'></i> Create a New<br> Greedy Grab Bag Game".html_safe, create_greedy_grab_bag_game_path) %></div>
+    </div>
+    
+    <div class='section-title'>My Games</div>
+    <div class='my-games'>
+      <% if my_games.any? %>
+        <% my_games.each do |game| %>
+          <a href="<%= "#{secret_santa_games_path}/#{game.id}" %>">
+            <div class='my-game'>
+              <div class='left'>
+                <div class='game-title'><%= game.game_title %></div>
+                <div class='game-details'>
+                  Group: <strong><%= game.group_name %></strong><br>
+                  Date of Game Play: <strong><%= game.date_of_game.strftime('%B %d, %Y') %></strong>
+                </div>
+              </div>
+              <div class='right'>
+                <div class='admin-label'><%= 'Creator' if is_creator?(game) %></div>
+              </div>
+            </div>
+          </a>
+        <% end %>
+      <% else %>
+        <div>You have not joined any games yet</div>
+      <% end %>
+    </div>
   </div>
 </div>

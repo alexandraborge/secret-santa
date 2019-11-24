@@ -5,7 +5,6 @@ class SecretSantaUsersController < ApplicationController
       flash[:success] = 'Congrats! You have been added to the game!'
       redirect_to "#{secret_santa_games_path}/#{@secret_santa_user.secret_santa_game_id}"
     else
-      flash[:errors] = 'Oops'
       redirect_to "#{secret_santa_games_path}/#{@secret_santa_user.secret_santa_game_id}"
     end
   end

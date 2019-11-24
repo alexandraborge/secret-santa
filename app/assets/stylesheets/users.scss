@@ -4,6 +4,11 @@
 $red: #C6502E;
 $green: #218000;
 
+a, a:visited {
+  text-decoration: none;
+  color: black;
+}
+
 %page-title {
   margin: 20px 0;
   font-weight: bold;
@@ -20,9 +25,6 @@ $green: #218000;
   font-size: 20px;
   padding: 10px 20px;
   border: 2px solid $red;
-  a {
-    text-decoration: none;
-  }
 
   &:hover {
     background-color: $red;
@@ -120,7 +122,62 @@ $green: #218000;
     .summary {
       border-top: 2px solid $red;
       padding: 5px 2px;
-      width: 80%;
+      width: 50%;
+    }
+  }
+
+  .right {
+    width: 50%;
+    .create-buttons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      .create-button {
+        margin: 5px;
+        border: 2px solid $green;
+        border-radius: 10px;
+        text-align: center;
+        padding: 2px 5px;
+        width: 30%;
+      }
+    }
+
+    .section-title {
+      @extend %page-title;
+    }
+
+    .my-games {
+      padding: 3px 10px;
+      .my-game {
+        margin: 8px 0;
+        padding: 10px;
+        background-color: #E8B9AD;
+        border: 2px solid $red;
+        border-radius: 7px;
+        display: flex;
+        justify-content: space-between;
+
+        .left {
+          width: 80%;
+          .game-title {
+            font-size: 18px;
+            font-weight: bold;
+          }
+  
+          .game-details {
+            font-size: 14px;
+          }
+        }
+
+        .right {
+          text-align: right;
+
+          .admin-label {
+            font-size: 12px;
+            color: $green;
+          }
+        }
+      }
     }
   }
 }
