@@ -7,6 +7,7 @@ class SecretSantaGamesController < ApplicationController
     @secret_santa = SecretSantaGame.create(create_game_params)
     if @secret_santa.valid?
       flash[:success] = "#{@secret_santa.group_name}'s game of #{@secret_santa.game_title} has been created"
+
       redirect_to @secret_santa
     else
       flash[:errors] = @secret_santa.errors.full_messages

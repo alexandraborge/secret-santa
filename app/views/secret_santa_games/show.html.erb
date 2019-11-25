@@ -1,35 +1,42 @@
-<% if flash[:success].present? %>
-  <div class='success-message'><%= flash[:success] %></div>
-<% end %>
-
-<div class='title'>Welcome! Get ready for a fun game of <%= @secret_santa.game_title %></div>
-<div class='instructions'>
-  <div>How to play:</div>
-  <%= instructions %>
-</div>
-<div class='game-info'>
-  <div class='stats'>
-    Group: <%= @secret_santa.group_name %><br>
-    Creator: God{{name of admin_user}}<br>
-    Budget: $<%= @secret_santa.budget.to_i %>
-  </div>
-  <div class='countdown'>
-    <div class='days'><%= countdown_to_draw %></div>
-    <div>Days Until the Drawing!</div>
-    <div>Drawing on <%= drawing_date.strftime('%B %d, %Y') %></div>
-  </div>
-</div>
-
-<% unless current_user_is_player? %>
-  <%= form_with(model: @secret_santa_user, url: new_member_path) do |f| %>
-    <%= f.hidden_field(:secret_santa_game_id, value: @secret_santa.id) %>
-    <%= f.hidden_field(:user_id, value: current_user[:id]) %>
-    <%= f.submit('Join Game') %>
+ <% if flash[:success].present? %>
+    <div class='success-message'><%= flash[:success] %></div>
   <% end %>
-<% end %>
 
-<div clas='players'>
-  <% @secret_santa.users.each do |player| %>
-    <li><%= player.name %></li>
-  <% end %>
+<div class='game-page'>
+
+  <div class='left'>
+    <div class='title'>Welcome! Get ready for a fun game of <%= @secret_santa.game_title %></div>
+    <div class='instructions'>
+      <strong class='instruction-label'>How to play</strong><br>
+      <%= instructions %>
+    </div>
+    <div class='stats'>
+      Group: <%= @secret_santa.group_name %><br>
+      Creator: <%= creator_of_game %><br>
+      Budget: $<%= @secret_santa.budget.to_i %>
+    </div>
+    <div clas='players'>
+      <% @secret_santa.users.each do |player| %>
+        <div class='player-list'>
+          <span class='avatar'><%= image_tag(url_for(player.display_image)) %></span>
+          <span class='name'><%= player.name %></span>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class='right'>
+    <% unless current_user_is_player? %>
+      <%= form_with(model: @secret_santa_user, url: new_member_path) do |f| %>
+        <%= f.hidden_field(:secret_santa_game_id, value: @secret_santa.id) %>
+        <%= f.hidden_field(:user_id, value: current_user[:id]) %>
+        <%= f.submit('Join Game') %>
+      <% end %>
+    <% end %>
+    <div class='countdown'>
+      <div class='days'><%= countdown_to_draw %></div>
+      <div>Days Until the Drawing!</div>
+      <div>Drawing on <%= drawing_date.strftime('%B %d, %Y') %></div>
+    </div>
+  </div>
 </div>
