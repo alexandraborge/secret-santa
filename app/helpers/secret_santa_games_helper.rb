@@ -27,4 +27,18 @@ module SecretSantaGamesHelper
   def current_user_is_player?
     SecretSantaUser.find(current_user[:id]).present? && @secret_santa_user.id.present?
   end
+
+  def game_info_table
+    data = [
+      {label: 'Group Name', value: @secret_santa.group_name},
+      {label: 'Group Creator', value: creator_of_game},
+      {label: 'Budget', value: "$#{@secret_santa.budget.to_i}"},
+      {label: 'Game Date', value: @secret_santa.date_of_game.strftime('%B %d, %Y')}
+    ]
+
+    DataTable.render(data) do |t|
+      t.column(:label)
+      t.column(:value)
+    end.html_safe
+  end
 end
