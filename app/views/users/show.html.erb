@@ -4,7 +4,7 @@
 
 <div class='profile-page'>
   <div class='left'>
-    <div class='name'><%= @user.name %>  <%= link_to("<i class='fas fa-user-edit'></i>".html_safe, edit_user_path) %></div>
+    <div class='name'><%= @user.name %>  <%= link_to("<i class='fas fa-user-edit'></i>".html_safe, edit_user_path, class: 'edit-icon') %></div>
     <div class='avatar'><%= image_tag(url_for(@user.display_image)) %></div>
     <% if @user.summary.present? %>
       <div class='summary-label'>Summary</div>
