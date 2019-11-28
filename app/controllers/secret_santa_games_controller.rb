@@ -20,6 +20,27 @@ class SecretSantaGamesController < ApplicationController
     @secret_santa_user = SecretSantaUser.new
   end
 
+  def edit
+    @secret_santa = SecretSantaGame.find(params[:id])
+  end
+
+  def update
+    @secret_santa = SecretSantaGame.find(params[:id])
+    if @secret_santa.update(create_game_params)
+      flash[:success] = "Your game details have been updated!"
+      redirect_to @secret_santa
+    else
+      flash[:errors] = @secret_santa.errors.full_messages
+      redirect_to edit_secret_santa_path
+    end
+  end
+
+  def destroy
+    SecretSantaGame.find(params[:id]).destroy
+    flash[:success] = 'Your game has been deleted'
+    redirect_to user_path
+  end
+
   private
 
   def create_game_params

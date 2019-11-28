@@ -11,6 +11,8 @@
         <%= instructions %>
       </div>
       <div class='stats'><%= game_info_table %></div>
+      <%= link_to('Delete Game', @secret_santa, method: :delete, data: {confirm: 'Are you sure?'}) if is_creator_of_game? %>
+      <%= link_to('Edit Game', edit_secret_santa_game_path) if is_creator_of_game? %>
     </div>
 
     <div class='right'>
@@ -18,7 +20,7 @@
         <div class='days'><%= countdown_to_draw %></div>
         <div>Days Until the Drawing!</div>
         <div>Drawing on <%= drawing_date.strftime('%B %d, %Y') %></div>
-      </div>
+      </div>     
     </div>
   </div>
 

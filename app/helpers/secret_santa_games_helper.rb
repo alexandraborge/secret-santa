@@ -16,6 +16,10 @@ module SecretSantaGamesHelper
     User.find(creator_user_id)[:name]
   end
 
+  def is_creator_of_game?
+    current_user[:id] == @secret_santa.creator
+  end
+
   def instructions
     "When #{creator_of_game} starts the drawing, everyone will recieve an email that will 
     contain the name of the player in this group that you are getting a gift for. 
