@@ -57,6 +57,6 @@ class UsersController < ApplicationController
 
   def authorized_user
     @user = User.find(params[:id])
-    redirect_to root_path unless player_of_game?
+    redirect_to root_path unless player_of_game? || current_user?(@user)
   end
 end
