@@ -11,10 +11,12 @@
         <%= instructions %>
       </div>
       <div class='stats'><%= game_info_table %></div>
+      <% if is_creator_of_game? %>
         <div class='edit-buttons'>
-          <div class='delete'><%= link_to('Delete Game', @secret_santa, method: :delete, data: {confirm: 'Are you sure?'}) if is_creator_of_game? %></div>
-          <div class='edit'><%= link_to('Edit Game', edit_secret_santa_game_path) if is_creator_of_game? %></div>
+          <div class='delete'><%= link_to('Delete Game', @secret_santa, method: :delete, data: {confirm: 'Are you sure?'})   %></div>
+          <div class='edit'><%= link_to('Edit Game', edit_secret_santa_game_path)  %></div>
         </div>
+      <% end %>
     </div>
 
     <div class='right'>
@@ -22,10 +24,16 @@
         <div class='days'><%= countdown_to_draw %></div>
         <div>Days Until the Drawing!</div>
         <div>Drawing on <%= drawing_date.strftime('%B %d, %Y') %></div>
-      </div>     
+      </div>  
+
+      <% if is_creator_of_game? %>
+        <%= form_with(model: @secret_santa_user, url: start_draw_path) do |f| %>
+          <%= f.submit('Start Draw!', class: 'start-draw-button') %>
+        <% end %>
+      <% end %>
     </div>
   </div>
-
+  
   <div class='players'>
     <% @secret_santa.users.each_slice(@secret_santa.users.length < 6 ? 1 : @secret_santa.users.length / 6) do |player_group| %>
       <div class='player-row'>

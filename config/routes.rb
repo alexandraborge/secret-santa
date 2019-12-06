@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   resources :secret_santa_games
   resources :greedy_grab_bag_games
   post '/new_member', to: 'secret_santa_users#create'
+  post '/start_draw', to: 'secret_santa_users#start_draw'
+  resources :secret_santa_users
 end
