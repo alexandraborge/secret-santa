@@ -28,6 +28,7 @@
 
       <% if is_creator_of_game? %>
         <%= form_with(model: @secret_santa_user, url: start_draw_path) do |f| %>
+          <%= f.hidden_field(:game_id, value: @secret_santa.id) %>
           <%= f.submit('Start Draw!', class: 'start-draw-button') %>
         <% end %>
       <% end %>
