@@ -7,11 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 users = [
-  {name: 'Brian Borge', email: 'brianborge@test.com', password: 'foobar', password_confirmation: 'foobar', summary: 'blah'},
-  {name: 'Alaina Ingram', email: 'alaina@test.com', password: 'foobar', password_confirmation: 'foobar', summary: 'blah'},
-  {name: 'Caroline Lazzaruolo', email: 'caroline@test.com', password: 'foobar', password_confirmation: 'foobar', summary: 'blah'},
-  {name: 'Roneiro Lazzaruolo', email: 'roneiro@test.com', password: 'foobar', password_confirmation: 'foobar', summary: 'blah'},
-  {name: 'Alexandra Borge', email: 'alexandra@test.com', password: 'foobar', password_confirmation: 'foobar', summary: 'blah'}
+  {name: 'Brian Borge', email: 'brianborge@test.com', password: 'foobar', password_confirmation: 'foobar'},
+  {name: 'Alaina Ingram', email: 'alaina@test.com', password: 'foobar', password_confirmation: 'foobar'},
+  {name: 'Caroline Lazzaruolo', email: 'caroline@test.com', password: 'foobar', password_confirmation: 'foobar'},
+  {name: 'Roneiro Lazzaruolo', email: 'roneiro@test.com', password: 'foobar', password_confirmation: 'foobar'},
+  {name: 'Alexandra Borge', email: 'alexandra@test.com', password: 'foobar', password_confirmation: 'foobar'}
 ]
 
 users.each do |user|

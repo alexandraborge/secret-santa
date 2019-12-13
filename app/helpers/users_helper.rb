@@ -6,4 +6,9 @@ module UsersHelper
   def is_creator?(game)
     game[:creator] == current_user[:id]
   end
+
+  def user_game_gift_receiver(game)
+    gift_receiver = SecretSantaUser.all.find { |user| user.user_id == @user.id && user.secret_santa_game_id == game.id }[:gift_receiver]
+    User.find(gift_receiver).name
+  end
 end

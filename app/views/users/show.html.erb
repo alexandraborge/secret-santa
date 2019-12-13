@@ -28,7 +28,7 @@
                 <div class='game-details'>
                   Group: <strong><%= game.group_name %></strong><br>
                   Date of Game Play: <strong><%= game.date_of_game.strftime('%B %d, %Y') %></strong><br>
-                  You are getting a gift for: <strong><%= SecretSantaUser.all.find { |f| f[:user_id] == @user.id && f[:secret_santa_game_id] == game.id }[:gift_receiver] %></strong>
+                  You are getting a gift for: <strong><%= user_game_gift_receiver(game) %></strong>
                 </div>
               </div>
               <div class='right'>

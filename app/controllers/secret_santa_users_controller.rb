@@ -9,7 +9,6 @@ class SecretSantaUsersController < ApplicationController
     end
   end
 
-  # Update records by adding a value to the gift receiver column
   def start_draw
     players = SecretSantaUser.all.select do |s| 
       s[:secret_santa_game_id] == secret_santa_user_game_params

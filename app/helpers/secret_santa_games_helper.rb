@@ -7,6 +7,8 @@ module SecretSantaGamesHelper
     @secret_santa.date_of_draw
   end
 
+  
+
   def countdown_to_draw
     (drawing_date.to_date - DateTime.now.to_date).to_i
   end
@@ -44,5 +46,9 @@ module SecretSantaGamesHelper
       t.column(:label)
       t.column(:value)
     end.html_safe
+  end
+
+  def draw_happened?
+    SecretSantaUser.find { |user| user.secret_santa_game_id == @secret_santa.id }[:gift_receiver].present?
   end
 end
