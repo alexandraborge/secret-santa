@@ -6,8 +6,8 @@ class SecretSantaGamesController < ApplicationController
   def create
     @secret_santa = SecretSantaGame.create(create_game_params)
     if @secret_santa.valid?
+      @secret_santa.secret_santa_users.create(user_id: @secret_santa.creator)
       flash[:success] = "#{@secret_santa.group_name}'s game of #{@secret_santa.game_title} has been created"
-
       redirect_to @secret_santa
     else
       flash[:errors] = @secret_santa.errors.full_messages
@@ -17,7 +17,6 @@ class SecretSantaGamesController < ApplicationController
 
   def show
     @secret_santa = SecretSantaGame.find(params[:id])
-    @secret_santa_user = SecretSantaUser.new
   end
 
   def edit
@@ -44,6 +43,6 @@ class SecretSantaGamesController < ApplicationController
   private
 
   def create_game_params
-    params.require(:secret_santa_game).permit(:creator, :group_name, :game_title, :date_of_draw, :date_of_game, :budget)
+    params.require(:secret_santa_game).permit(:creator, :group_name, :game_title, :date_of_draw, :date_of_game, :budget, :token)
   end  
 end

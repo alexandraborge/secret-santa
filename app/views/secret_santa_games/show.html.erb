@@ -1,6 +1,10 @@
- <% if flash[:success].present? %>
-    <div class='success-message'><%= flash[:success] %></div>
-  <% end %>
+<% if flash[:success].present? %>
+  <div class='success-message'><%= flash[:success] %></div>
+<% end %>
+
+<% if is_creator_of_game? %>
+  <div><%= @secret_santa.token %></div>
+<% end  %>
 
 <div class='game-page'>
   <div class='game-info'>
