@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
-  # For now only allow the logged in current user to view, update, delete their profile
-  # Later, anyone in a game with the person will be able to view their profile
-  before_action(:authorized_user, only: [:show, :edit, :update, :delete])
+  before_action(:authorized_user, :show, only: [:edit, :update, :delete])
+  before_action(:authorized_player, :show)
 
   def new
     @user = User.new
@@ -11,6 +10,7 @@ class UsersController < ApplicationController
     @user = User.create(create_user_params)
     if @user.valid?
       login(@user)
+      @user.secret_santa_users.create(user_id: @user.id, secret_santa_game_id: SecretSantaGame.find_by(token: params[:user][:token]).id)
       flash[:success] = "Welcome #{@user.name}! Start by customizing your profile!"
       redirect_to @user
     else
@@ -57,6 +57,10 @@ class UsersController < ApplicationController
 
   def authorized_user
     @user = User.find(params[:id])
-    redirect_to root_path unless player_of_game? || current_user?(@user)
+    redirect_to login_path unless logged_in? && current_user?(@user)
+  end
+
+  def authorized_player
+    redirect_to login_path unless logged_in? && player_of_game?
   end
 end

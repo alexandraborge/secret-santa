@@ -1,14 +1,4 @@
 class SecretSantaUsersController < ApplicationController  
-  def create
-    @secret_santa_user = SecretSantaUser.create(user_games_params)
-    if @secret_santa_user.valid?
-      flash[:success] = 'Congrats! You are a player of the game!'
-      redirect_to "#{secret_santa_games_path}/#{@secret_santa_user.secret_santa_game_id}"
-    else
-      redirect_to "#{secret_santa_games_path}/#{@secret_santa_user.secret_santa_game_id}"
-    end
-  end
-
   def start_draw
     players = SecretSantaUser.all.select do |s| 
       s[:secret_santa_game_id] == secret_santa_user_game_params

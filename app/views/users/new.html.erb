@@ -16,6 +16,7 @@
     <%= f.password_field(:password) %><br>
     <%= f.label(:password_confirmation, 'Password Confirmation') %><br>
     <%= f.password_field(:password_confirmation) %><br><br>
+    <%= f.hidden_field(:token, value: params[:token]) %>
     <%= f.submit('Create Account', class: 'submit-button') %>
   <% end %>
 </div>

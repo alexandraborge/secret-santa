@@ -1,4 +1,6 @@
 class SecretSantaGamesController < ApplicationController
+  before_action(:authorized_player, :show)
+
   def new
     @secret_santa = SecretSantaGame.new
   end
@@ -44,5 +46,9 @@ class SecretSantaGamesController < ApplicationController
 
   def create_game_params
     params.require(:secret_santa_game).permit(:creator, :group_name, :game_title, :date_of_draw, :date_of_game, :budget, :token)
-  end  
+  end
+
+  def authorized_player
+    redirect_to login_path unless logged_in? && player_of_game?
+  end
 end

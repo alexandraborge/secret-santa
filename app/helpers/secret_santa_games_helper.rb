@@ -47,6 +47,6 @@ module SecretSantaGamesHelper
   end
 
   def link_path
-    "localhost:3000#{secret_santa_games_path}/#{params[:id]}?token=#{@secret_santa.token}"
+    "localhost:3000#{signup_path}?token=#{@secret_santa.token}"
   end
 end
