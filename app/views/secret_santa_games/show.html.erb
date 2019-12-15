@@ -2,9 +2,14 @@
   <div class='success-message'><%= flash[:success] %></div>
 <% end %>
 
-<% if is_creator_of_game? %>
-  <div><%= @secret_santa.token %></div>
-<% end  %>
+<script>
+  function copyLink() {
+    var copyText = document.getElementById('link');
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+    document.execCommand('copy');
+  }
+</script>
 
 <div class='game-page'>
   <div class='game-info'>
@@ -43,6 +48,14 @@
     </div>
   </div>
 
+  <% if is_creator_of_game? %>
+    <div class='invite-players'>
+      <div class='text'>Invite more players!</div>
+      <input type='text' value="<%= link_path %>" id='link' class='link'>
+      <button onclick='copyLink()'>Copy</button>
+    </div>
+  <% end  %>
+  
   <div class='players'>
     <% @secret_santa.users.each_slice(@secret_santa.users.length < 6 ? 1 : @secret_santa.users.length / 6) do |player_group| %>
       <div class='player-row'>

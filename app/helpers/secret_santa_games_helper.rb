@@ -1,13 +1,7 @@
 module SecretSantaGamesHelper
-  def game_types
-    ['Secret Santa', 'Greedy Grab Bag']
-  end
-
   def drawing_date
     @secret_santa.date_of_draw
   end
-
-  
 
   def countdown_to_draw
     (drawing_date.to_date - DateTime.now.to_date).to_i
@@ -50,5 +44,9 @@ module SecretSantaGamesHelper
 
   def draw_happened?
     SecretSantaUser.find { |user| user.secret_santa_game_id == @secret_santa.id }[:gift_receiver].present?
+  end
+
+  def link_path
+    "localhost:3000#{secret_santa_games_path}/#{params[:id]}?token=#{@secret_santa.token}"
   end
 end
