@@ -13,4 +13,8 @@ module UsersHelper
 
     User.find(gift_receiver).name
   end
+
+  def expired_game?(game)
+    game.date_of_game.to_date < DateTime.now.to_date
+  end
 end

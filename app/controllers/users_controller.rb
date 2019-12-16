@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  before_action(:authorized_user, :show, only: [:edit, :update, :delete])
-  before_action(:authorized_player, :show)
+  before_action(:authorized_user, only: [:show, :edit, :update, :delete])
 
   def new
     @user = User.new
@@ -58,9 +57,5 @@ class UsersController < ApplicationController
   def authorized_user
     @user = User.find(params[:id])
     redirect_to login_path unless logged_in? && current_user?(@user)
-  end
-
-  def authorized_player
-    redirect_to login_path unless logged_in? && player_of_game?
   end
 end

@@ -3,7 +3,6 @@ class SecretSantaUsersController < ApplicationController
     players = SecretSantaUser.all.select do |s| 
       s[:secret_santa_game_id] == secret_santa_user_game_params
     end
-
     receivers = players.dup.map(&:user_id)
 
     players.each do |player|
@@ -28,6 +27,6 @@ class SecretSantaUsersController < ApplicationController
   end 
 
   def secret_santa_user_game_params
-    params[:secret_santa_user][:game_id].to_i
+    params[:game_id].to_i
   end
 end

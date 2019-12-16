@@ -30,10 +30,13 @@
                 <div class='game-details'>
                   Group: <strong><%= game.group_name %></strong><br>
                   Date of Game Play: <strong><%= game.date_of_game.strftime('%B %d, %Y') %></strong><br>
-                  You are getting a gift for: <strong><%= user_game_gift_receiver(game) %></strong>
+                  <% if current_user?(@user) %>
+                    You are getting a gift for: <strong><%= user_game_gift_receiver(game) %></strong>
+                  <% end %>
                 </div>
               </div>
               <div class='right'>
+                <div class='expired-label'><%= 'Expired' if expired_game?(game) %></div>
                 <div class='admin-label'><%= 'Creator' if is_creator?(game) %></div>
               </div>
             </div>
