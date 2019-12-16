@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.create(create_user_params)
     if @user.valid?
       login(@user)
-      @user.secret_santa_users.create(user_id: @user.id, secret_santa_game_id: SecretSantaGame.find_by(token: params[:user][:token]).id)
+      @user.secret_santa_users.create(user_id: @user.id, secret_santa_game_id: SecretSantaGame.find_by(token: params[:user][:token]).id) if params[:user][:token].present?
       flash[:success] = "Welcome #{@user.name}! Start by customizing your profile!"
       redirect_to @user
     else

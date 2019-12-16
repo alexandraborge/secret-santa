@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :secret_santa_users
+  has_many :secret_santa_users, dependent: :destroy
   has_many :secret_santa_games, through: :secret_santa_users
   before_create(:default_values)
   has_one_attached(:avatar)

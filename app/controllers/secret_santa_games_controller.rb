@@ -16,7 +16,11 @@ class SecretSantaGamesController < ApplicationController
   end
 
   def show
-    @secret_santa = SecretSantaGame.find(params[:id])
+    if logged_in?
+      @secret_santa = SecretSantaGame.find(params[:id])
+    else
+      redirect_to login_path
+    end
   end
 
   def edit

@@ -1,5 +1,6 @@
 class SecretSantaUsersController < ApplicationController  
   def start_draw
+    byebug
     players = SecretSantaUser.all.select do |s| 
       s[:secret_santa_game_id] == secret_santa_user_game_params
     end
