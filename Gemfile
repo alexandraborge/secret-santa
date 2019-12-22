@@ -4,7 +4,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.5'
 gem 'rails', '~> 6.0.0'
 gem 'data-table'
-gem 'sqlite3', '~> 1.4'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5'
 gem 'webpacker', '~> 4.0'
@@ -17,7 +16,12 @@ gem 'mini_magick', '4.9.5'
 gem 'active_storage_validations', '0.8.2'
 
 group :development, :test do
+  gem 'sqlite3', '~> 1.4'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+end
+
+group :production do
+  gem 'pg', '0.20.0'
 end
 
 group :development do
