@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method(:logged_in?, :current_user, :logout, :login, :settings_path, :current_user?)
+  helper_method(:logged_in?, :current_user, :logout, :login, :settings_path, :current_user?, :player_of_game?)
 
   private
 

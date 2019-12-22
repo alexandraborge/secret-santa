@@ -1,7 +1,13 @@
-<div class='new-game-page'>
-  <div class='title'>Create New Secret Santa Game</div>
-
-  <%= form_with(model: @secret_santa, url: create_secret_santa_game_path) do |f| %>
+<div class='edit-game-page new-game-page'>
+  <div class='title'>Edit Secret Santa Game</div>
+  <% if flash[:errors].present? %>
+    <ul class='error-messages'>
+      <% flash[:errors].each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <%= form_with(model: @secret_santa) do |f| %>
     <%= f.label(:group_name, 'Group Name') %><br>
     <%= f.text_field(:group_name) %><br>
     <%= f.label(:date_of_draw, 'What is the date of the draw?') %><br>
@@ -12,6 +18,6 @@
     <%= f.date_field(:date_of_game) %><br>
     <%= f.hidden_field(:creator, value: current_user[:id]) %>
     <%= f.hidden_field(:game_title, value: 'Secret Santa') %>
-    <%= f.submit('Create Game', class: 'submit-button') %>
+    <%= f.submit('Update Game', class: 'submit-button') %>
   <% end %>
 </div>

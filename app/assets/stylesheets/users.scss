@@ -4,6 +4,11 @@
 $red: #C6502E;
 $green: #218000;
 
+a, a:visited {
+  text-decoration: none;
+  color: #123f03;
+}
+
 %page-title {
   margin: 20px 0;
   font-weight: bold;
@@ -13,21 +18,28 @@ $green: #218000;
 
 %submit-button {
   margin-top: 20px;
-  margin-left: 10px;
+  margin-left: 150px;
+  width: 200px;
   background-color: $green;
   border-radius: 15px;
   color: white;
   font-size: 20px;
   padding: 10px 20px;
   border: 2px solid $red;
-  a {
-    text-decoration: none;
-  }
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
 
   &:hover {
     background-color: $red;
     color: white;
     border-color: $green;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
   }
 }
 
@@ -56,6 +68,8 @@ $green: #218000;
   .title {
     text-align: center;
     @extend %page-title;
+    color: #123f03;
+    text-shadow: -1px 0 $green, 0 1px $green, 1px 0 $green, 0 -1px $green;
   }
 
   form {
@@ -94,6 +108,7 @@ $green: #218000;
   font-family: 'Montserrat', sans-serif;
   display: flex;
   justify-content: space-between;
+  color: #123f03;
 
   .left {
     padding-left: 2%;
@@ -101,6 +116,28 @@ $green: #218000;
     .name {
       @extend %page-title;
       text-align: left;
+    }
+
+    .edit-icon {
+      i {
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-property: transform;
+        transition-property: transform;
+        -webkit-transition-timing-function: ease-out;
+        transition-timing-function: ease-out;
+        color: #123f03;
+      }
+    }
+
+    .edit-icon:hover {
+      i {
+        -webkit-transform: translateY(-8px);
+        transform: translateY(-8px);
+      }
     }
 
     .avatar {
@@ -120,7 +157,95 @@ $green: #218000;
     .summary {
       border-top: 2px solid $red;
       padding: 5px 2px;
-      width: 80%;
+      width: 50%;
+    }
+  }
+
+  .right {
+    width: 50%;
+    .create-buttons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      .create-button {
+        margin: 5px;
+        border: 2px solid $green;
+        border-radius: 10px;
+        text-align: center;
+        padding: 2px 5px;
+        width: 30%;
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-property: transform;
+        transition-property: transform;
+        -webkit-transition-timing-function: ease-out;
+        transition-timing-function: ease-out;
+
+        &:hover {
+          -webkit-transform: translateY(-8px);
+          transform: translateY(-8px);
+        }
+      }
+    }
+
+    .section-title {
+      @extend %page-title;
+    }
+
+    .my-games {
+      padding: 3px 10px;
+
+      .my-game:hover {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+      }
+
+      .my-game {
+        margin-bottom: 20px;
+        padding: 10px;
+        background-color: #E8B9AD;
+        box-shadow: -10px 25px 50px rgba(0, 0, 0, 0.3);
+        border-radius: 7px;
+        display: flex;
+        justify-content: space-between;
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-property: transform;
+        transition-property: transform;
+
+        .left {
+          width: 80%;
+          .game-title {
+            font-size: 18px;
+            font-weight: bold;
+          }
+  
+          .game-details {
+            font-size: 14px;
+          }
+        }
+
+        .right {
+          display: flex;
+          justify-content: flex-end;
+          font-size: 12px;
+
+          .admin-label {
+            color: $green;
+            padding-left: 10px;
+          }
+
+
+          .expired-label {
+            color: $red;
+          }
+        }
+      }
     }
   }
 }

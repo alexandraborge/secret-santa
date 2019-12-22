@@ -10,21 +10,24 @@ $green: #218000;
 
   .main-container {
     margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     div {
       width: 30%;
     }
 
     .about-signup {
-      margin: 0 auto;
+      margin-right: 20px;
       font-size: 1.5em;
       text-align: center;
       border: 3px solid $red;
       color: $red;
       border-radius: 15px;
       height: 180px;
-      padding: 3%;
+      padding: 2%;
       font-weight: bold;
-      padding-top: 4%;
+      padding-top: 3%;
 
       button {
         margin-top: 30px;
@@ -34,8 +37,17 @@ $green: #218000;
         font-size: 20px;
         padding: 10px 20px;
         border: 2px solid $red;
-        a {
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-property: transform;
+        transition-property: transform;
+
+        a, a:visited {
           text-decoration: none;
+          color: white;
         }
       }
 
@@ -43,13 +55,14 @@ $green: #218000;
         background-color: $red;
         color: white;
         border-color: $green;
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
       }
     }
 
     .festive-image {
-      margin: 0 auto;
       img {
-        width: 95%;
+        width: 85%;
       }
     }
   }
