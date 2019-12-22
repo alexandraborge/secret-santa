@@ -4,7 +4,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.5'
 gem 'rails', '~> 6.0.0'
 gem 'data-table'
+<<<<<<< HEAD
 gem 'puma', '~> 3.11'
+=======
+gem 'sqlite3', '~> 1.4'
+gem 'puma', '~> 3.12'
+>>>>>>> 92fcface7c9efa2d886dd3ab9a89f6091fd918c6
 gem 'sass-rails', '~> 5'
 gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
