@@ -56,6 +56,6 @@ class UsersController < ApplicationController
 
   def authorized_user
     @user = User.find(params[:id])
-    redirect_to login_path unless logged_in? && current_user?(@user)
+    redirect_to login_path unless logged_in? || current_user?(@user)
   end
 end
