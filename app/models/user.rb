@@ -16,6 +16,12 @@ class User < ApplicationRecord
 
   def default_values
     self.summary ||= 'I love holiday games! (Use this area to tell us about yourself and your top gift preferences. Be Specific!)'
-    self.avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default-avatar.jpg')), filename: 'default-avatar.jpg', content_type: 'image/jpg')
+    self.avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'avatars', random_avatar)), filename: random_avatar, content_type: 'image/jpg')
+  end
+
+  def random_avatar
+    Dir.glob('app/assets/images/avatars/*.png')
+    .map { |image| image.split('/').last }
+    .sample
   end
 end
