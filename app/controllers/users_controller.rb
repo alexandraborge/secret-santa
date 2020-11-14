@@ -14,7 +14,12 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       flash[:errors] = @user.errors.full_messages
-      redirect_to signup_path
+
+      if params[:user][:token]
+        redirect_to signup_path(token: params[:user][:token])
+      else
+        redirect_to signup_path
+      end
     end
   end
 
