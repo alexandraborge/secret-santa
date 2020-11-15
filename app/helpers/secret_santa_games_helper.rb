@@ -17,10 +17,10 @@ module SecretSantaGamesHelper
   end
 
   def instructions
-    "When #{creator_of_game} starts the drawing, everyone will recieve an email that will
-    contain the name of the player in this group that you are getting a gift for.
-    You can also check your profile to find this information. Once you know who you are getting
-    a gift for you can check out their profile to see their wish list! You may buy a gift for this person within the budget set.
+    "When #{creator_of_game} starts the drawing, each person may check the games card on their profile page.
+    It will be updated with the name of the person they are getting a gift for. But don't worry, no one else will be able to see this.
+    Once you know who you are getting a gift for you can check out their profile to see their wish list!
+    Check the budget to see how much to spend on a gift for this person.
     On game day all players will take turns giving their gifts to eachother."
   end
 

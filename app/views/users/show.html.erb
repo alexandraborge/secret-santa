@@ -15,10 +15,9 @@
     <% if current_user?(@user) %>
       <div class='create-buttons'>
         <div class='create-button'><%= link_to("<i class='fas fa-plus'></i> Create a New<br> Secret Santa Game".html_safe, create_secret_santa_game_path) %></div>
-        <div class='create-button'><%= link_to("<i class='fas fa-plus'></i> Create a New<br> Greedy Grab Bag Game".html_safe, create_greedy_grab_bag_game_path) %></div>
       </div>
     <% end %>
-    
+
     <div class='section-title'>My Games</div>
     <div class='my-games'>
       <% if my_games.any? %>

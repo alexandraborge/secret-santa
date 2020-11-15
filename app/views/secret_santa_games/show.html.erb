@@ -34,10 +34,10 @@
       <% else %>
         <div class='countdown'>
           <div class='days'><%= countdown_to_draw %></div>
-          <div>Days Until the Drawing!</div>
-          <div>Drawing on <%= drawing_date.strftime('%B %d, %Y') %></div>
+          <div>Days until the drawing!</div>
+          <div>The drawing will happen on <%= drawing_date.strftime('%B %d, %Y') %></div>
         </div>
-      <% end %>  
+      <% end %>
 
       <% if is_creator_of_game? %>
         <%= form_with(model: @secret_santa_user, url: start_draw_path) do |f| %>
@@ -55,7 +55,7 @@
       <button onclick='copyLink()'>Copy</button>
     </div>
   <% end  %>
-  
+
   <div class='players'>
     <% @secret_santa.users.each_slice(@secret_santa.users.length < 6 ? 1 : @secret_santa.users.length / 6) do |player_group| %>
       <div class='player-row'>
