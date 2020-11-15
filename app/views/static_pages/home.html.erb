@@ -5,7 +5,9 @@
   <div class='main-container'>
     <div class='about-signup'>
       Get together with friends and family for a fun holiday game of Secret Santa and more!<br>
-      <button><%= link_to('Sign Up Now', signup_path) %></button>
+      <% unless logged_in? %>
+        <button><%= link_to('Sign Up Now', signup_path) %></button>
+      <% end %>
     </div>
     <div class='festive-image'><%= image_tag('gift.png') %></div>
   </div>

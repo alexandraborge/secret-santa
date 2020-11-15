@@ -49,7 +49,7 @@ a, a:visited {
   label {
     font-weight: bold;
   }
-  
+
   input, textarea {
     margin-bottom: 10px;
     margin-top: 2px;
@@ -146,7 +146,7 @@ a, a:visited {
         border-radius: 10px;
       }
     }
-  
+
     .summary-label {
       margin-top: 10px;
       margin-bottom: 5px;
@@ -166,7 +166,7 @@ a, a:visited {
     .create-buttons {
       margin-top: 20px;
       display: flex;
-      justify-content: center;
+      justify-content: flex-end;
       .create-button {
         margin: 5px;
         border: 2px solid $green;
@@ -224,7 +224,7 @@ a, a:visited {
             font-size: 18px;
             font-weight: bold;
           }
-  
+
           .game-details {
             font-size: 14px;
           }
