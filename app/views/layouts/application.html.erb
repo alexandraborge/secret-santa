@@ -17,12 +17,12 @@
       <% if logged_in? %>
         <div><%= link_to('<i class="fas fa-home"></i>'.html_safe, root_path) %></div>
         <div><%= link_to('Profile', current_user) %></div>
-        <div><%= link_to('Games', get_started_path) %></div>
+        <div><%#= link_to('Games', get_started_path) %></div>
         <div><%= link_to('Logout', logout_path, method: :delete) %></div>
         <div><%= link_to('<i class="fas fa-cog"></i>'.html_safe, settings_path) %></div>
       <% else %>
         <div><%= link_to('<i class="fas fa-home"></i>'.html_safe, root_path) %></div>
-        <div><%= link_to('Games', get_started_path) %></div>
+        <div><%#= link_to('Games', get_started_path) %></div>
         <div><%= link_to('Login', login_path) %></div>
       <% end %>
     </div>
