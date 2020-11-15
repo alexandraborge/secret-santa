@@ -17,8 +17,8 @@ module SecretSantaGamesHelper
   end
 
   def instructions
-    "When #{creator_of_game} starts the drawing, everyone will recieve an email that will 
-    contain the name of the player in this group that you are getting a gift for. 
+    "When #{creator_of_game} starts the drawing, everyone will recieve an email that will
+    contain the name of the player in this group that you are getting a gift for.
     You can also check your profile to find this information. Once you know who you are getting
     a gift for you can check out their profile to see their wish list! You may buy a gift for this person within the budget set.
     On game day all players will take turns giving their gifts to eachother."
@@ -47,6 +47,18 @@ module SecretSantaGamesHelper
   end
 
   def link_path
-    "localhost:3000#{signup_path}?token=#{@secret_santa.token}"
+    request_parts = {
+      host: request.host,
+      path: signup_path,
+      query: {
+        token: @secret_santa.token
+      }.to_query
+    }
+
+    if %w[development test].include? Rails.env
+      request_parts.merge!(port: request.port)
+    end
+
+    URI::HTTPS.build(request_parts)
   end
 end
